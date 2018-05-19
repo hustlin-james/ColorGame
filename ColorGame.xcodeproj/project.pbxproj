@@ -24,6 +24,10 @@
 		C14ED25420B0BB6C0095CA33 /* levelCompleted.wav in Resources */ = {isa = PBXBuildFile; fileRef = C14ED24D20B0BB6B0095CA33 /* levelCompleted.wav */; };
 		C14ED25520B0BB6C0095CA33 /* fail.wav in Resources */ = {isa = PBXBuildFile; fileRef = C14ED24E20B0BB6B0095CA33 /* fail.wav */; };
 		C14ED25620B0BB6C0095CA33 /* levelUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = C14ED24F20B0BB6B0095CA33 /* levelUp.wav */; };
+		C14ED25820B0CB810095CA33 /* pulse.sks in Resources */ = {isa = PBXBuildFile; fileRef = C14ED25720B0CB810095CA33 /* pulse.sks */; };
+		C14ED25A20B0CBCC0095CA33 /* fireworks.sks in Resources */ = {isa = PBXBuildFile; fileRef = C14ED25920B0CBCC0095CA33 /* fireworks.sks */; };
+		C14ED25E20B0EB430095CA33 /* GameElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14ED25D20B0EB430095CA33 /* GameElements.swift */; };
+		C14ED26020B0EB5E0095CA33 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14ED25F20B0EB5E0095CA33 /* GameFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		C14ED24D20B0BB6B0095CA33 /* levelCompleted.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = levelCompleted.wav; sourceTree = "<group>"; };
 		C14ED24E20B0BB6B0095CA33 /* fail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fail.wav; sourceTree = "<group>"; };
 		C14ED24F20B0BB6B0095CA33 /* levelUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = levelUp.wav; sourceTree = "<group>"; };
+		C14ED25720B0CB810095CA33 /* pulse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = pulse.sks; sourceTree = "<group>"; };
+		C14ED25920B0CBCC0095CA33 /* fireworks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fireworks.sks; sourceTree = "<group>"; };
+		C14ED25D20B0EB430095CA33 /* GameElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameElements.swift; sourceTree = "<group>"; };
+		C14ED25F20B0EB5E0095CA33 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +126,13 @@
 			isa = PBXGroup;
 			children = (
 				C14ED21420B0BADE0095CA33 /* AppDelegate.swift */,
-				C14ED21620B0BADE0095CA33 /* GameScene.sks */,
+				C14ED21C20B0BADE0095CA33 /* GameViewController.swift */,
+				C14ED25C20B0EAFE0095CA33 /* Particles */,
+				C14ED25B20B0EAF10095CA33 /* Game Scenes */,
 				C14ED21820B0BADE0095CA33 /* Actions.sks */,
 				C14ED21A20B0BADE0095CA33 /* GameScene.swift */,
-				C14ED21C20B0BADE0095CA33 /* GameViewController.swift */,
+				C14ED25D20B0EB430095CA33 /* GameElements.swift */,
+				C14ED25F20B0EB5E0095CA33 /* GameFunctions.swift */,
 				C14ED21E20B0BADE0095CA33 /* Main.storyboard */,
 				C14ED24820B0BB6B0095CA33 /* Sounds */,
 				C14ED22120B0BADF0095CA33 /* Assets.xcassets */,
@@ -161,6 +172,23 @@
 				C14ED24F20B0BB6B0095CA33 /* levelUp.wav */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		C14ED25B20B0EAF10095CA33 /* Game Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C14ED21620B0BADE0095CA33 /* GameScene.sks */,
+			);
+			path = "Game Scenes";
+			sourceTree = "<group>";
+		};
+		C14ED25C20B0EAFE0095CA33 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				C14ED25720B0CB810095CA33 /* pulse.sks */,
+				C14ED25920B0CBCC0095CA33 /* fireworks.sks */,
+			);
+			path = Particles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,9 +299,11 @@
 				C14ED21720B0BADE0095CA33 /* GameScene.sks in Resources */,
 				C14ED25320B0BB6C0095CA33 /* background.wav in Resources */,
 				C14ED25420B0BB6C0095CA33 /* levelCompleted.wav in Resources */,
+				C14ED25A20B0CBCC0095CA33 /* fireworks.sks in Resources */,
 				C14ED25620B0BB6C0095CA33 /* levelUp.wav in Resources */,
 				C14ED22220B0BADF0095CA33 /* Assets.xcassets in Resources */,
 				C14ED25120B0BB6C0095CA33 /* move.wav in Resources */,
+				C14ED25820B0CB810095CA33 /* pulse.sks in Resources */,
 				C14ED22520B0BADF0095CA33 /* LaunchScreen.storyboard in Resources */,
 				C14ED21920B0BADE0095CA33 /* Actions.sks in Resources */,
 				C14ED25520B0BB6C0095CA33 /* fail.wav in Resources */,
@@ -303,6 +333,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C14ED26020B0EB5E0095CA33 /* GameFunctions.swift in Sources */,
+				C14ED25E20B0EB430095CA33 /* GameElements.swift in Sources */,
 				C14ED21B20B0BADE0095CA33 /* GameScene.swift in Sources */,
 				C14ED21D20B0BADE0095CA33 /* GameViewController.swift in Sources */,
 				C14ED21520B0BADE0095CA33 /* AppDelegate.swift in Sources */,
