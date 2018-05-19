@@ -18,6 +18,7 @@ class GameScene: SKScene {
             if let track = self.childNode(withName: "\(i)") as? SKSpriteNode{
                 tracksArray?.append(track)
             }
+            //Test
         }
     }
     
