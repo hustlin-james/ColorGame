@@ -20,6 +20,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     var target:SKSpriteNode?
     
     //MARK: HUD
+    var pause:SKSpriteNode?
     var timeLabel:SKLabelNode?
     var scoreLabel:SKLabelNode?
     var currentScore:Int = 0 {
@@ -92,11 +93,19 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             let node = self.nodes(at: location).first
             
             if node?.name == "right"{
-                moveToNextTrack()
+                if currentTrack < 8{
+                    moveToNextTrack()
+                }
             }else if node?.name == "up"{
                 moveVertically(up: true)
             }else if node?.name == "down"{
                 moveVertically(up: false)
+            }else if node?.name == "pause", let scene = self.scene{
+                if scene.isPaused {
+                    scene.isPaused = false
+                }else{
+                    scene.isPaused = true
+                }
             }
             
         }
