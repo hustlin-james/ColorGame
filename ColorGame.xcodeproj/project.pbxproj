@@ -28,6 +28,11 @@
 		C14ED25A20B0CBCC0095CA33 /* fireworks.sks in Resources */ = {isa = PBXBuildFile; fileRef = C14ED25920B0CBCC0095CA33 /* fireworks.sks */; };
 		C14ED25E20B0EB430095CA33 /* GameElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14ED25D20B0EB430095CA33 /* GameElements.swift */; };
 		C14ED26020B0EB5E0095CA33 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14ED25F20B0EB5E0095CA33 /* GameFunctions.swift */; };
+		C14ED26520B11D680095CA33 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C14ED26120B11D670095CA33 /* GameOverScene.sks */; };
+		C14ED26620B11D680095CA33 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14ED26220B11D670095CA33 /* StartScene.swift */; };
+		C14ED26720B11D680095CA33 /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C14ED26320B11D670095CA33 /* StartScene.sks */; };
+		C14ED26820B11D680095CA33 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14ED26420B11D680095CA33 /* GameOverScene.swift */; };
+		C14ED26A20B11F600095CA33 /* ScrollingBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14ED26920B11F600095CA33 /* ScrollingBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +80,11 @@
 		C14ED25920B0CBCC0095CA33 /* fireworks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fireworks.sks; sourceTree = "<group>"; };
 		C14ED25D20B0EB430095CA33 /* GameElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameElements.swift; sourceTree = "<group>"; };
 		C14ED25F20B0EB5E0095CA33 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
+		C14ED26120B11D670095CA33 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
+		C14ED26220B11D670095CA33 /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
+		C14ED26320B11D670095CA33 /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
+		C14ED26420B11D680095CA33 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		C14ED26920B11F600095CA33 /* ScrollingBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,9 +140,12 @@
 				C14ED25C20B0EAFE0095CA33 /* Particles */,
 				C14ED25B20B0EAF10095CA33 /* Game Scenes */,
 				C14ED21820B0BADE0095CA33 /* Actions.sks */,
+				C14ED26420B11D680095CA33 /* GameOverScene.swift */,
+				C14ED26220B11D670095CA33 /* StartScene.swift */,
 				C14ED21A20B0BADE0095CA33 /* GameScene.swift */,
 				C14ED25D20B0EB430095CA33 /* GameElements.swift */,
 				C14ED25F20B0EB5E0095CA33 /* GameFunctions.swift */,
+				C14ED26920B11F600095CA33 /* ScrollingBackground.swift */,
 				C14ED21E20B0BADE0095CA33 /* Main.storyboard */,
 				C14ED24820B0BB6B0095CA33 /* Sounds */,
 				C14ED22120B0BADF0095CA33 /* Assets.xcassets */,
@@ -185,6 +198,8 @@
 		C14ED25C20B0EAFE0095CA33 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				C14ED26320B11D670095CA33 /* StartScene.sks */,
+				C14ED26120B11D670095CA33 /* GameOverScene.sks */,
 				C14ED25720B0CB810095CA33 /* pulse.sks */,
 				C14ED25920B0CBCC0095CA33 /* fireworks.sks */,
 			);
@@ -304,10 +319,12 @@
 				C14ED22220B0BADF0095CA33 /* Assets.xcassets in Resources */,
 				C14ED25120B0BB6C0095CA33 /* move.wav in Resources */,
 				C14ED25820B0CB810095CA33 /* pulse.sks in Resources */,
+				C14ED26720B11D680095CA33 /* StartScene.sks in Resources */,
 				C14ED22520B0BADF0095CA33 /* LaunchScreen.storyboard in Resources */,
 				C14ED21920B0BADE0095CA33 /* Actions.sks in Resources */,
 				C14ED25520B0BB6C0095CA33 /* fail.wav in Resources */,
 				C14ED25220B0BB6C0095CA33 /* MenuHighscoreMusic.mp3 in Resources */,
+				C14ED26520B11D680095CA33 /* GameOverScene.sks in Resources */,
 				C14ED25020B0BB6C0095CA33 /* powerUp.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +351,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C14ED26020B0EB5E0095CA33 /* GameFunctions.swift in Sources */,
+				C14ED26A20B11F600095CA33 /* ScrollingBackground.swift in Sources */,
+				C14ED26620B11D680095CA33 /* StartScene.swift in Sources */,
+				C14ED26820B11D680095CA33 /* GameOverScene.swift in Sources */,
 				C14ED25E20B0EB430095CA33 /* GameElements.swift in Sources */,
 				C14ED21B20B0BADE0095CA33 /* GameScene.swift in Sources */,
 				C14ED21D20B0BADE0095CA33 /* GameViewController.swift in Sources */,

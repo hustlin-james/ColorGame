@@ -14,8 +14,26 @@ import GameplayKit
 class GameScene: SKScene,SKPhysicsContactDelegate {
     
     var tracksArray: [SKSpriteNode]? = [SKSpriteNode]()
+    
+    
     var player:SKSpriteNode?
     var target:SKSpriteNode?
+    
+    //MARK: HUD
+    var timeLabel:SKLabelNode?
+    var scoreLabel:SKLabelNode?
+    var currentScore:Int = 0 {
+        didSet{
+            self.scoreLabel?.text = "SCORE: \(self.currentScore)"
+        }
+    }
+    
+    var remainingTime:TimeInterval = 60{
+        didSet{
+            self.timeLabel?.text = "TIME: \(Int(self.remainingTime))"
+        }
+    }
+    
     
     var currentTrack = 0
     var movingToTrack = false
@@ -33,10 +51,13 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     let playerCategory:UInt32 = 0x1 << 0
     let enemyCategory:UInt32 = 0x1 << 1
     let targetCategory:UInt32 = 0x1 << 2
+    let powerUpCategory:UInt32 = 0x1 << 3
     
    
     override func didMove(to view: SKView) {
         setupTracks()
+        createHUD()
+        launchGameTimer()
         createPlayer()
         createTarget()
         
@@ -56,8 +77,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         }
         
         self.run(SKAction.repeatForever(SKAction.sequence([SKAction.run({
-            self.spawnEnemies()
-        }), SKAction.wait(forDuration: 2)]
+                self.spawnEnemies()
+            }), SKAction.wait(forDuration: 2)]
         )))
     }
     
@@ -111,6 +132,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         else if playerBody.categoryBitMask == playerCategory && otherBody.categoryBitMask == targetCategory{
             nextLevel(playerPhysicsBody: playerBody)
         }
+        else if playerBody.categoryBitMask == playerCategory && otherBody.categoryBitMask == powerUpCategory{
+            self.run(SKAction.playSoundFileNamed("powerUp.wav", waitForCompletion: true))
+            otherBody.node?.removeFromParent()
+            remainingTime += 5
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -120,6 +146,14 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             if player.position.y >  self.size.height  || player.position.y < 0{
                 movePlayerToStart()
             }
+        }
+        
+        if remainingTime <= 5{
+            timeLabel?.fontColor = UIColor.red
+        }
+        
+        if remainingTime == 0{
+            gameOver()
         }
     }
 }

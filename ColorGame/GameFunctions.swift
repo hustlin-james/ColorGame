@@ -11,6 +11,15 @@ import GameplayKit
 
 
 extension GameScene{
+    
+    func launchGameTimer(){
+        let timeAction = SKAction.repeatForever(SKAction.sequence([SKAction.run({
+            self.remainingTime -= 1
+        }), SKAction.wait(forDuration:1)]))
+        
+        timeLabel?.run(timeAction)
+    }
+    
     func moveVertically(up: Bool){
         if up {
             let moveAction = SKAction.moveBy(x: 0, y: 3, duration: 0.01)
@@ -52,11 +61,26 @@ extension GameScene{
     }
     
     func spawnEnemies(){
-        for i in 1 ... 7{
-            let randomEnemyType = Enemies(rawValue: GKRandomSource.sharedRandom().nextInt(upperBound: 3))!
-            if let newEnemy = createEnemy(type: randomEnemyType, forTrack: i) {
-                self.addChild(newEnemy)
+        var randomTrackNumber = 0
+        let createPowerUp = GKRandomSource.sharedRandom().nextBool()
+        
+        if createPowerUp{
+            randomTrackNumber = GKRandomSource.sharedRandom().nextInt(upperBound: 6)+1
+            
+            if let powerUpObject = self.createPowerUp(forTrack: randomTrackNumber){
+                self.addChild(powerUpObject)
             }
+        }
+        for i in 1 ... 7{
+            
+            if randomTrackNumber != i {
+                let randomEnemyType = Enemies(rawValue: GKRandomSource.sharedRandom().nextInt(upperBound: 3))!
+                if let newEnemy = createEnemy(type: randomEnemyType, forTrack: i) {
+                    self.addChild(newEnemy)
+                }
+            }
+            
+           
         }
         
         self.enumerateChildNodes(withName: "ENEMY") { (node:SKNode, nil) in
@@ -77,6 +101,7 @@ extension GameScene{
     }
     
     func nextLevel(playerPhysicsBody: SKPhysicsBody){
+        currentScore += 1
         self.run(SKAction.playSoundFileNamed("levelUp.wav", waitForCompletion: true))
         let emitter = SKEmitterNode(fileNamed: "fireworks.sks")
         playerPhysicsBody.node?.addChild(emitter!)
@@ -84,6 +109,16 @@ extension GameScene{
         self.run(SKAction.wait(forDuration: 0.5)){
             emitter?.removeFromParent()
             self.movePlayerToStart()
+        }
+    }
+    
+    func gameOver(){
+        self.run(SKAction.playSoundFileNamed("levelCompleted.wav", waitForCompletion: true))
+        let transition = SKTransition.fade(withDuration: 1)
+        
+        if let gameOverScene = SKScene(fileNamed: "GameOverScene"){
+            gameOverScene.scaleMode = .aspectFit
+            self.view?.presentScene(gameOverScene,transition:transition)
         }
     }
     
